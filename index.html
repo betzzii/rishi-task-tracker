@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task Tracker + Calendar</title>
+  <meta name="description" content="A simple Task Tracker with calendar view using JavaScript and Firebase (Auth + Firestore)." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="wrap">
+    <div class="brand">
+      <h1>Task Tracker <span class="muted">+ Calendar</span></h1>
+      <div class="subtitle">JavaScript + Firebase</div>
+    </div>
+    <nav>
+      <button id="tab-tasks" class="tab active">Tasks</button>
+      <button id="tab-calendar" class="tab">Calendar</button>
+      <div class="spacer"></div>
+      <div id="auth-area">
+        <span id="user-email" class="muted"></span>
+        <button id="btn-signin" class="pill">Sign In</button>
+        <button id="btn-signup" class="pill secondary">Sign Up</button>
+        <button id="btn-signout" class="pill danger" style="display:none;">Sign Out</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <dialog id="auth-modal">
+      <form method="dialog" class="card">
+        <h2 id="auth-title">Sign In</h2>
+        <label>Email <input id="auth-email" type="email" required /></label>
+        <label>Password <input id="auth-pass" type="password" required minlength="6" /></label>
+        <menu>
+          <button value="cancel" class="pill secondary">Cancel</button>
+          <button id="auth-submit" value="default" class="pill">Continue</button>
+        </menu>
+        <p id="auth-error" class="error"></p>
+      </form>
+    </dialog>
+
+    <section id="tasks-view">
+      <div class="card">
+        <h3>Add Task</h3>
+        <form id="task-form">
+          <label>Title <input type="text" id="task-title" required /></label>
+          <label>Due Date <input type="date" id="task-date" required /></label>
+          <label>Notes <textarea id="task-notes"></textarea></label>
+          <div class="row">
+            <label class="checkbox"><input type="checkbox" id="task-important" /> Mark as important</label>
+            <button class="pill" type="submit">Add Task</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>Your Tasks</h3>
+        <div id="empty-state" class="muted">No tasks yet. Add your first task above.</div>
+        <ul id="task-list"></ul>
+      </div>
+    </section>
+
+    <section id="calendar-view" style="display:none;">
+      <div class="card">
+        <div class="calendar-header">
+          <button id="prev-month" class="pill secondary">‹</button>
+          <h3 id="cal-title"></h3>
+          <button id="next-month" class="pill secondary">›</button>
+        </div>
+        <div class="calendar-grid" id="calendar-grid"></div>
+        <div class="legend">
+          <span class="dot important"></span> Important
+          <span class="dot normal"></span> Task
+          <span class="dot today"></span> Today
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer muted">
+    © <span id="year"></span> Rishi • Task Tracker + Calendar
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
