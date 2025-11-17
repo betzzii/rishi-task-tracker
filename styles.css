@@ -1,0 +1,81 @@
+:root{
+  --bg:#0f1115; --card:#171a23; --ink:#e6e8ef; --muted:#a8acb8;
+  --accent:#7aa2ff; --danger:#ff6b6b;
+  --ring:0 0 0 2px rgba(122,162,255,.25), 0 10px 24px rgba(0,0,0,.35);
+  --radius:14px; --border:1px solid rgba(255,255,255,.06);
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:system-ui, Arial;
+}
+
+.wrap{
+  max-width:1080px;
+  margin:auto;
+  padding:22px;
+}
+
+.muted{color:var(--muted);}
+
+.tab{
+  background:transparent;
+  border:var(--border);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.tab.active{
+  box-shadow:var(--ring);
+  color:var(--accent);
+}
+
+.pill{
+  background:var(--card);
+  border:var(--border);
+  padding:8px 12px;
+  border-radius:999px;
+  cursor:pointer;
+}
+
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:var(--radius);
+  border:var(--border);
+  margin-bottom:20px;
+}
+
+input,textarea{
+  width:100%;
+  background:var(--card);
+  border:var(--border);
+  color:var(--ink);
+  padding:10px;
+  border-radius:10px;
+}
+
+.task{
+  display:grid;
+  grid-template-columns:1fr auto auto;
+  gap:10px;
+  padding:10px;
+  border-bottom:var(--border);
+}
+
+.calendar-grid{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:10px;
+}
+
+.cell{
+  background:var(--card);
+  border-radius:12px;
+  padding:8px;
+  min-height:80px;
+  border:var(--border);
+}
